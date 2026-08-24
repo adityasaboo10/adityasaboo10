@@ -3,7 +3,7 @@
 # Aditya Saboo
 
 <a href="https://readme-typing-svg.demolab.com">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6366F1&center=true&vCenter=true&width=650&lines=Hardware+Architect+%26+VLSI+Enthusiast;FPGA+%26+SoC+System+Designer;B.Tech+EE+%E2%80%94+IIT+Indore+(2028);Building+Compute-Intensive+Custom+Silicon" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6366F1&center=true&vCenter=true&width=650&lines=Hardware+Architect+%26+VLSI+Enthusiast;B.Tech+EE+%E2%80%94+IIT+Indore+(2028);Building+Compute-Intensive+Custom+Silicon" alt="Typing SVG" />
 </a>
 
 <br/>
