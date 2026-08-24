@@ -107,7 +107,7 @@ A custom robotic arm controller developed for the Arduino SSCS Competition 2025.
 ## 📊 GitHub Analytics
 
 <div align="center">
-  <img src="https://github-stats-extended.vercel.app/api?username=adityasaboo10&show_icons=true&theme=tokyonight&title_color=6366F1&icon_color=6366F1&text_color=94A3B8&bg_color=0D1117&border_color=30363D&hide_border=false" alt="Aditya's GitHub Stats" height="165" />
+  <img src="https://github-stats-extended.vercel.app/api?username=adityasaboo10&show_icons=true&theme=tokyonight&title_color=6366F1&icon_color=6366F1&text_color=94A3B8&bg_color=0D1117&border_color=30363D&hide_border=false&hide_rank=true" alt="Aditya's GitHub Stats" height="165" />
   <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=adityasaboo10&layout=compact&theme=tokyonight&title_color=6366F1&text_color=94A3B8&bg_color=0D1117&border_color=30363D&hide_border=false" alt="Top Languages" height="165" />
 </div>
 
