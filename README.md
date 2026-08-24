@@ -114,5 +114,5 @@ A custom robotic arm controller developed for the Arduino SSCS Competition 2025.
 ---
 
 <div align="center">
-  <sub>⚡ <i>"Architecting silicon at the intersection of compute density, timing closure, and physical performance."</i></sub>
+  <sub>⚡ <i>"Between RTL and reality, there's only synthesis."</i></sub>
 </div>
