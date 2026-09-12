@@ -43,7 +43,7 @@ A real-time edge detection accelerator designed to achieve deterministic, stream
 
 ---
 
-### 🤖 [Autonomous FPGA Maze-Solving Robot (eYRC-1687)](https://github.com/Digivjay-P/MazeSolver-bot)
+### 🤖 [Autonomous FPGA Maze-Solving Robot (eYRC-1687)](https://github.com/adityasaboo10/MazeSolver-bot)
 **`Verilog` `RTL` `Altera Cyclone IV` `FSM` `Quadrature Encoding`**
 
 A fully autonomous hardware-driven maze-navigating system developed for the e-Yantra Robotics Competition.
