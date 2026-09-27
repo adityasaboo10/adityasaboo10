@@ -2,8 +2,7 @@
 
 # Aditya Saboo
 
-<a href="https://readme-typing-svg.demolab.com">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6366F1&center=true&vCenter=true&width=650&lines=Hardware+Architect+%26+VLSI+Enthusiast;B.Tech+EE+%E2%80%94+IIT+Indore+(2028);Building+Compute-Intensive+Custom+Silicon" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6366F1&center=true&vCenter=true&width=650&lines=FPGA%2FRTL+%26+VLSI+Enthusiast;B.Tech+EE+%E2%80%94+IIT+Indore+(2028);Building+AI+%26+Custom+Hardware+Accelerators" alt="Typing SVG" />
 </a>
 
 <br/>
@@ -18,14 +17,13 @@
 
 ## 👨‍💻 About Me
 
-I build compute-intensive hardware architectures — 2D convolution engines, AI accelerators, and custom math pipelines — and integrate them into full SoC systems using standard protocols like AXI. My approach stays rooted in the physical realities of chip design: synthesis optimization, hardware-software co-design, and hitting strict timing closure. It's all part of a broader trajectory toward **VLSI and computer architecture**.
+I design FPGA-based accelerators and digital systems, from pipelined convolution engines and fixed-point datapaths to AXI-based SoC integration. My work focuses on RTL architecture, resource optimization, verification, and hardware-software co-design, with a broader interest in **VLSI and computer architecture**.
 
-- ⚡ **Hardware Acceleration**: Designing 2D convolution engines, custom fixed-point arithmetic units, and dedicated accelerator cores
-- 🔌 **SoC Integration & Interconnects**: System-level integration using **AXI4 / AXI-Stream**, high-throughput **DMA engines**, and standard bus protocols
-- ⏱️ **Synthesis & Physical Realities**: Clock Domain Crossing (**CDC**), synthesis optimization, and meeting strict **timing closure**
-- 🔄 **HW/SW Co-Design**: Bridging bare-metal drivers, embedded firmware, and cycle-accurate Verilog datapaths
-- 🎓 **Education**: B.Tech in Electrical Engineering at **IIT Indore** (Class of 2028)
-
+- ⚡ **Hardware Acceleration**: Designing convolution engines, fixed-point arithmetic pipelines, and dedicated accelerator cores
+- 🔌 **SoC Integration**: Integrating custom RTL using **AXI4-Lite**, **AXI4-Stream**, and **Xilinx AXI DMA**
+- ⏱️ **Digital Design**: Working with pipelining, finite-state machines, clock-domain crossing, synthesis, and FPGA resource optimization
+- 🔄 **HW/SW Co-Design**: Connecting Python/PYNQ control software and embedded firmware with Verilog RTL accelerators
+- 🎓 **Education**: B.Tech. in Electrical Engineering at **IIT Indore** (Class of 2028)
 ---
 
 ## 🚀 Featured Projects
@@ -33,46 +31,50 @@ I build compute-intensive hardware architectures — 2D convolution engines, AI 
 > Hardware architectures, custom RTL pipelines, and embedded control systems I've designed, simulated, and deployed.
 
 ### 👁️ [Heterogeneous SoC Vision Accelerator](https://github.com/adityasaboo10/Heterogeneous-SoC-Vision-Accelerator)
-**`Verilog` `FPGA` `DMA` `Pipelined Datapath` `SoC`**
+**`Verilog` `FPGA` `AXI4-Stream` `AXI4-Lite` `Xilinx AXI DMA` `PYNQ-Z2`**
 
-A real-time edge detection accelerator designed to achieve deterministic, streaming computer vision acceleration on FPGA silicon.
+A signed, pipelined 3×3 convolution accelerator integrated with the ARM processing system on a PYNQ-Z2.
 
-- Achieved **< 3ms hardware latency** for real-time edge detection in high-throughput video streams
-- Bypassed the CPU entirely via a custom **DMA engine** for direct memory access without host overhead
-- Engineered a **fully pipelined Verilog datapath** — ensuring zero software-in-the-loop bottlenecks across the vision pipeline
+- Achieved **2.26 ms hardware latency** and **8.20 ms end-to-end latency** for a 256×256 image, compared with **53.47 ms** on the ARM Cortex-A9
+- Streamed image data between DDR and custom RTL through **Xilinx AXI DMA**, avoiding per-pixel CPU transfers
+- Scaled the architecture to **six parallel convolution engines** and demonstrated LeNet-5 inference with Conv1 and Conv2 executed on FPGA and the remaining layers on ARM/Python
+- Demonstrated matching digit classification while validating FPGA intermediate outputs against the software implementation
 
 ---
 
-### 🤖 [Autonomous FPGA Maze-Solving Robot (eYRC-1687)](https://github.com/adityasaboo10/MazeSolver-bot)
-**`Verilog` `RTL` `Altera Cyclone IV` `FSM` `Quadrature Encoding`**
+### 🤖 [FPGA Maze Explorer Bot — e-Yantra](https://github.com/adityasaboo10/MazeSolver-bot)
+**`Verilog` `FPGA` `FSM` `Trémaux Algorithm` `SignalTap`**
 
-A fully autonomous hardware-driven maze-navigating system developed for the e-Yantra Robotics Competition.
+A team-built autonomous FPGA maze-exploration robot developed for the e-Yantra Robotics Competition.
 
-- Implemented in **100% pure RTL** (zero soft-core CPU / instruction overhead) on an **Altera Cyclone IV DE0-Nano FPGA**
-- Synthesized **Trémaux's graph-traversal algorithm** directly into a dedicated hardware Finite State Machine (FSM)
-- Enforced closed-loop differential motor control and wall-centering using hardware-decoded **quadrature wheel odometry**
+- Contributed movement and state-transition logic and integrated the navigation brain with the robot's sensing and actuation modules
+- Implemented and tested **wall-following and Trémaux-based navigation**, including maze-memory and backtracking logic
+- Integrated swappable navigation modules with a common hardware body through a defined brain-body interface
+- Debugged internal FPGA signals on hardware using the **SignalTap Logic Analyzer**
 
 ---
 
 ### 📐 [Quaternion Accelerator](https://github.com/adityasaboo10/Quaternion-Accelerator)
-**`Verilog` `FPGA` `Fixed-Point Arithmetic` `Pipelining`**
+**`Verilog` `FPGA` `Fixed-Point Arithmetic` `Pipelining` `SPI` `CDC`**
 
-An FPGA-based hardware accelerator tailored for low-latency, real-time spatial orientation estimation.
+A pipelined FPGA architecture for quaternion multiplication and IMU-based orientation-processing experiments.
 
-- Accelerated **quaternion multiplication** via dedicated hardware arithmetic pipelines using optimized fixed-point arithmetic
-- Enabled deterministic, ultra-low-latency 3D orientation tracking while eliminating **gimbal lock singularities**
-- Bypassed host CPU compute bottlenecks to enable high-frequency IMU sensor fusion pipelines
+- Implemented direct and Hadamard-based quaternion multiplication architectures in Verilog
+- Reduced LUT utilization from **3,119 to 1,900**, a **39% reduction**, using a four-stage pipelined Hadamard architecture
+- Designed asynchronous FIFO buffering for clock-domain crossing between the Arduino SPI interface and FPGA logic
+- Verified the architecture using simulation and IMU-derived input datasets
 
 ---
 
 ### 🦾 [RAC-01 — Robotic Arm Controller](https://github.com/adityasaboo10/RAC-01_Robotic-Arm-Controller_)
 **`C++` `Arduino` `Servo Control` `Embedded Systems`**
 
-A custom robotic arm controller developed for the Arduino SSCS Competition 2025.
+An Arduino-based four-servo robotic arm developed for the SSCS Arduino Competition 2025.
 
-- Developed an embedded multi-servo actuation architecture featuring coordinated **4-DOF kinematic control**
-- Designed to assist individuals with physical impairments through reliable, high-repeatability spatial task routines
-- Structured deterministic servo PWM timing and sensor feedback within a real-time embedded control loop
+- Implemented joystick, mode-selection, Bluetooth, and press-and-play control modes
+- Recorded and replayed sequences of servo movements for repetitive tasks
+- Added gradual servo-position updates to reduce abrupt mechanical motion
+- Designed a separate high-current servo power rail using an 18650 battery pack and buck converter to prevent Arduino brownouts
 
 ---
 
@@ -80,13 +82,13 @@ A custom robotic arm controller developed for the Arduino SSCS Competition 2025.
 
 ### HDLs & Languages
 ![Verilog](https://img.shields.io/badge/Verilog-00599C?style=for-the-badge&logo=c&logoColor=white)
-![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black)
+![SystemVerilog](https://img.shields.io/badge/-SystemVerilog%20(Learning)-2F74C0?style=for-the-badge)![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black)
 ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
 ### Protocols & Architecture
 ![AXI4](https://img.shields.io/badge/AXI4%20%2F%20AXI--Stream-6366F1?style=for-the-badge&logo=microchip&logoColor=white)
-![DMA Engines](https://img.shields.io/badge/DMA%20Engines-4F46E5?style=for-the-badge&logo=cpu&logoColor=white)
+![Xilinx AXI DMA](https://img.shields.io/badge/Xilinx%20AXI%20DMA-4F46E5?style=for-the-badge)
 ![Pipelined Datapaths](https://img.shields.io/badge/Pipelined%20Datapaths-4338CA?style=for-the-badge&logo=fastapi&logoColor=white)
 ![FSM Design](https://img.shields.io/badge/FSM%20Design-3730A3?style=for-the-badge&logo=diagram-next&logoColor=white)
 ![CDC](https://img.shields.io/badge/CDC-312E81?style=for-the-badge&logo=clock&logoColor=white)
