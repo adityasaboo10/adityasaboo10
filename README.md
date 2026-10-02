@@ -3,7 +3,6 @@
 # Aditya Saboo
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6366F1&center=true&vCenter=true&width=650&lines=FPGA%2FRTL+%26+VLSI+Enthusiast;B.Tech+EE+%E2%80%94+IIT+Indore+(2028);Building+AI+%26+Custom+Hardware+Accelerators" alt="Typing SVG" />
-</a>
 
 <br/>
 
@@ -17,92 +16,127 @@
 
 ## 👨‍💻 About Me
 
-I design FPGA-based accelerators and digital systems, from pipelined convolution engines and fixed-point datapaths to AXI-based SoC integration. My work focuses on RTL architecture, resource optimization, verification, and hardware-software co-design, with a broader interest in **VLSI and computer architecture**.
+I design FPGA accelerators and digital systems, from pipelined convolution engines and fixed-point datapaths to multi-engine CNN architectures and AXI-based SoC integration. My work focuses on RTL architecture, resource-efficient dataflows, hardware validation, and FPGA implementation, with broader interests in **VLSI and computer architecture**.
 
-- ⚡ **Hardware Acceleration**: Designing convolution engines, fixed-point arithmetic pipelines, and dedicated accelerator cores
+- ⚡ **Hardware Acceleration**: Building convolution engines, fixed-point arithmetic pipelines, and dedicated accelerator cores
+- 🧠 **CNN Acceleration**: Developing layer-reconfigurable FPGA architectures for multi-channel convolution and LeNet-5 inference
 - 🔌 **SoC Integration**: Integrating custom RTL using **AXI4-Lite**, **AXI4-Stream**, and **Xilinx AXI DMA**
-- ⏱️ **Digital Design**: Working with pipelining, finite-state machines, clock-domain crossing, synthesis, and FPGA resource optimization
-- 🔄 **HW/SW Co-Design**: Connecting Python/PYNQ control software and embedded firmware with Verilog RTL accelerators
+- ⏱️ **Digital Design**: Working with pipelining, FSMs, clock-domain crossing, line buffering, synthesis, and FPGA resource optimization
+- 🔬 **Hardware Validation**: Verifying RTL through simulation, software references and on-chip debugging
 - 🎓 **Education**: B.Tech. in Electrical Engineering at **IIT Indore** (Class of 2028)
+
 ---
 
 ## 🚀 Featured Projects
 
-> Hardware architectures, custom RTL pipelines, and embedded control systems I've designed, simulated, and deployed.
+> Hardware architectures, custom RTL pipelines, and embedded systems I have designed, implemented, and tested.
 
-### 👁️ [Heterogeneous SoC Vision Accelerator](https://github.com/adityasaboo10/Heterogeneous-SoC-Vision-Accelerator)
-**`Verilog` `FPGA` `AXI4-Stream` `AXI4-Lite` `Xilinx AXI DMA` `PYNQ-Z2`**
+### 👁️ [Heterogeneous SoC CNN Accelerator](https://github.com/adityasaboo10/Heterogeneous-SoC-CNN-Accelerator)
 
-A signed, pipelined 3×3 convolution accelerator integrated with the ARM processing system on a PYNQ-Z2.
+**`Verilog` `FPGA` `LeNet-5` `AXI4-Stream` `AXI4-Lite` `Xilinx AXI DMA` `PYNQ-Z2`**
 
-- Achieved **2.26 ms hardware latency** and **8.20 ms end-to-end latency** for a 256×256 image, compared with **53.47 ms** on the ARM Cortex-A9
-- Streamed image data between DDR and custom RTL through **Xilinx AXI DMA**, avoiding per-pixel CPU transfers
-- Scaled the architecture to **six parallel convolution engines** and demonstrated LeNet-5 inference with Conv1 and Conv2 executed on FPGA and the remaining layers on ARM/Python
-- Demonstrated matching digit classification while validating FPGA intermediate outputs against the software implementation
+A layer-reconfigurable CNN accelerator developed from an earlier signed 2D convolution engine and deployed on the PYNQ-Z2.
+
+- Designed a signed, pipelined 3×3 convolution accelerator with 9 DSP-backed MACs, achieving 2.26 ms latency for 256×256 images.
+- Scaled it to six parallel vector engines and 54 DSP-backed MACs for parallel Conv1 filtering and six-channel Conv2 accumulation.
+- Implemented **K−1 line buffering**, cutting BRAM use from **12 to 6 (50%)**, LUTs from **4,334 to 3,890 (10.2%)**, and FFs from **5,553 to 5,263**
+- Achieved **0.261 ms Conv1** and **4.627 ms Conv2** latency, delivering **49.7× and 47.8× speedups** over ARM Cortex-A9 implementations
+- Accelerated all LeNet-5 convolution layers by **47.9×**, completing them in **4.89 ms versus 233.96 ms** on the ARM processor
+- Validated end-to-end inference with **bit-exact Conv1 outputs** and matching digit classification
 
 ---
 
 ### 🤖 [FPGA Maze Explorer Bot — e-Yantra](https://github.com/adityasaboo10/MazeSolver-bot)
-**`Verilog` `FPGA` `FSM` `Trémaux Algorithm` `SignalTap`**
 
-A team-built autonomous FPGA maze-exploration robot developed for the e-Yantra Robotics Competition.
+**`Verilog` `Cyclone IV` `FSM` `Trémaux Algorithm` `SignalTap`**
 
-- Contributed movement and state-transition logic and integrated the navigation brain with the robot's sensing and actuation modules
-- Implemented and tested **wall-following and Trémaux-based navigation**, including maze-memory and backtracking logic
-- Integrated swappable navigation modules with a common hardware body through a defined brain-body interface
-- Debugged internal FPGA signals on hardware using the **SignalTap Logic Analyzer**
+A team-built autonomous maze-exploration robot implemented entirely in FPGA logic for the e-Yantra Robotics Competition (2025).
+
+- Owned the movement logic, implementing a **seven-state body FSM** for corridor following, junction traversal, stops, encoder-gated turns, and recovery at **50 MHz**
+- Designed the Trémaux navigation brain using an **81×4 directional mark memory** for maze traversal, backtracking, and path selection
+- Developed a non-blocking **brain-body handshake**, enabling wall-following and Trémaux navigation modules to share the same movement logic
+- Integrated motor, IR, ultrasonic, encoder, PWM, and UART modules and debugged live FPGA behavior using **SignalTap**
 
 ---
 
 ### 📐 [Quaternion Accelerator](https://github.com/adityasaboo10/Quaternion-Accelerator)
+
 **`Verilog` `FPGA` `Fixed-Point Arithmetic` `Pipelining` `SPI` `CDC`**
 
-A pipelined FPGA architecture for quaternion multiplication and IMU-based orientation-processing experiments.
+A pipelined FPGA architecture for quaternion multiplication using live MPU6050 IMU data.
 
-- Implemented direct and Hadamard-based quaternion multiplication architectures in Verilog
-- Reduced LUT utilization from **3,119 to 1,900**, a **39% reduction**, using a four-stage pipelined Hadamard architecture
-- Designed asynchronous FIFO buffering for clock-domain crossing between the Arduino SPI interface and FPGA logic
-- Verified the architecture using simulation and IMU-derived input datasets
+- Built a Verilog quaternion accelerator using IMU data transmitted over SPI through an Arduino interface
+- Implemented a **four-stage pipelined Hadamard architecture**, reducing LUT utilization from **3,119 to 1,900 (39%)**
+- Designed asynchronous FIFO buffers for safe clock-domain crossing between the SPI and FPGA domains
+- Verified the architecture through RTL simulation and IMU-derived input datasets
 
 ---
 
 ### 🦾 [RAC-01 — Robotic Arm Controller](https://github.com/adityasaboo10/RAC-01_Robotic-Arm-Controller_)
-**`C++` `Arduino` `Servo Control` `Embedded Systems`**
 
-An Arduino-based four-servo robotic arm developed for the SSCS Arduino Competition 2025.
+**`C++` `Arduino` `Bluetooth` `Servo Control` `Embedded Systems`**
 
-- Implemented joystick, mode-selection, Bluetooth, and press-and-play control modes
-- Recorded and replayed sequences of servo movements for repetitive tasks
-- Added gradual servo-position updates to reduce abrupt mechanical motion
-- Designed a separate high-current servo power rail using an 18650 battery pack and buck converter to prevent Arduino brownouts
+A four-degree-of-freedom assistive robotic arm developed for the SSCS Arduino Competition 2025.
+
+- Implemented joystick control, Bluetooth operation, mode selection, and programmable record-and-playback sequences
+- Structured the embedded control flow using state-machine-driven firmware
+- Added gradual servo-position updates to reduce abrupt mechanical movement
+- Designed a separate high-current servo power rail using an 18650 battery pack and MINI560 buck converter to prevent brownouts
+
+---
+
+### ⚡ [DC–DC Boost Converter](https://github.com/adityasaboo10/Boost-Converter)
+
+**`Power Electronics` `TL494` `TC4428A` `IRFZ44N` `Oscilloscope Testing`**
+
+A discrete boost converter designed, assembled, and experimentally tested under different conduction modes.
+
+- Built and tested a **10 V-to-20 V, 1 A** boost converter operating at **5 kHz**
+- Implemented PWM control using the TL494, TC4428A gate driver, and IRFZ44N MOSFET
+- Validated **continuous and discontinuous conduction modes** using oscilloscope measurements of inductor and diode waveforms
+- Experimentally produced DCM operation by increasing the load resistance to **214 Ω**
 
 ---
 
 ## 🛠️ Tech & Tools
 
 ### HDLs & Languages
+
 ![Verilog](https://img.shields.io/badge/Verilog-00599C?style=for-the-badge&logo=c&logoColor=white)
-![SystemVerilog](https://img.shields.io/badge/-SystemVerilog%20(Learning)-2F74C0?style=for-the-badge)![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black)
+![SystemVerilog](https://img.shields.io/badge/SystemVerilog%20Fundamentals-2F74C0?style=for-the-badge)
+![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black)
 ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
-### Protocols & Architecture
-![AXI4](https://img.shields.io/badge/AXI4%20%2F%20AXI--Stream-6366F1?style=for-the-badge&logo=microchip&logoColor=white)
-![Xilinx AXI DMA](https://img.shields.io/badge/Xilinx%20AXI%20DMA-4F46E5?style=for-the-badge)
-![Pipelined Datapaths](https://img.shields.io/badge/Pipelined%20Datapaths-4338CA?style=for-the-badge&logo=fastapi&logoColor=white)
-![FSM Design](https://img.shields.io/badge/FSM%20Design-3730A3?style=for-the-badge&logo=diagram-next&logoColor=white)
-![CDC](https://img.shields.io/badge/CDC-312E81?style=for-the-badge&logo=clock&logoColor=white)
-![SoC Architecture](https://img.shields.io/badge/SoC%20Architecture-1E1B4B?style=for-the-badge&logo=processor&logoColor=white)
-![I2C](https://img.shields.io/badge/I2C-005A9C?style=for-the-badge&logo=circuitverse&logoColor=white)
-![UART](https://img.shields.io/badge/UART-003B64?style=for-the-badge&logo=circuitverse&logoColor=white)
+### Digital Design & SoC Architecture
 
-### EDA & Hardware Tooling
+![AXI4](https://img.shields.io/badge/AXI4--Lite%20%2F%20AXI4--Stream-6366F1?style=for-the-badge)
+![Xilinx AXI DMA](https://img.shields.io/badge/Xilinx%20AXI%20DMA-4F46E5?style=for-the-badge)
+![Pipelined Datapaths](https://img.shields.io/badge/Pipelined%20Datapaths-4338CA?style=for-the-badge)
+![FSM Design](https://img.shields.io/badge/FSM%20Design-3730A3?style=for-the-badge)
+![CDC](https://img.shields.io/badge/Clock%20Domain%20Crossing-312E81?style=for-the-badge)
+![Asynchronous FIFOs](https://img.shields.io/badge/Asynchronous%20FIFOs-1E3A8A?style=for-the-badge)
+![BRAM and DSP](https://img.shields.io/badge/BRAM%20%26%20DSP%20Optimization-1E1B4B?style=for-the-badge)
+![SPI](https://img.shields.io/badge/SPI-0369A1?style=for-the-badge)
+![I2C](https://img.shields.io/badge/I2C-005A9C?style=for-the-badge)
+![UART](https://img.shields.io/badge/UART-003B64?style=for-the-badge)
+
+### EDA & FPGA Tooling
+
 ![Xilinx Vivado](https://img.shields.io/badge/Xilinx%20Vivado-CC0000?style=for-the-badge&logo=xilinx&logoColor=white)
 ![Intel Quartus Prime](https://img.shields.io/badge/Intel%20Quartus%20Prime-0071C5?style=for-the-badge&logo=intel&logoColor=white)
-![ModelSim](https://img.shields.io/badge/ModelSim-005F73?style=for-the-badge&logo=siemens&logoColor=white)
+![ModelSim](https://img.shields.io/badge/ModelSim-005F73?style=for-the-badge)
+![SignalTap](https://img.shields.io/badge/SignalTap-0068B5?style=for-the-badge&logo=intel&logoColor=white)
 ![MATLAB / Simulink](https://img.shields.io/badge/MATLAB%20%2F%20Simulink-ED8B00?style=for-the-badge&logo=mathworks&logoColor=white)
 ![LTspice](https://img.shields.io/badge/LTspice-9B1B30?style=for-the-badge&logo=analogdevices&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+
+### Hardware Testing
+
+![Oscilloscope](https://img.shields.io/badge/Oscilloscope-0F766E?style=for-the-badge)
+![Logic Analyzer](https://img.shields.io/badge/Logic%20Analyzer-0D9488?style=for-the-badge)
+![Vector Network Analyzer](https://img.shields.io/badge/Vector%20Network%20Analyzer-14B8A6?style=for-the-badge)
+![Multimeter](https://img.shields.io/badge/Multimeter-2DD4BF?style=for-the-badge)
 
 ---
 
