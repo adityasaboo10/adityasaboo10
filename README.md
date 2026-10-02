@@ -54,7 +54,7 @@ A team-built autonomous maze-exploration robot implemented entirely in FPGA logi
 
 - Owned the movement logic, implementing a **seven-state body FSM** for corridor following, junction traversal, stops, encoder-gated turns, and recovery at **50 MHz**
 - Designed the Trémaux navigation brain using an **81×4 directional mark memory** for maze traversal, backtracking, and path selection
-- Developed a non-blocking **brain-body handshake**, enabling wall-following and Trémaux navigation modules to share the same movement logic
+- Developed a non-blocking **brain-body handshake** for wall-following and Trémaux modules to share the same movement logic
 - Integrated motor, IR, ultrasonic, encoder, PWM, and UART modules and debugged live FPGA behavior using **SignalTap**
 
 ---
