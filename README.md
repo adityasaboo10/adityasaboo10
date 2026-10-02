@@ -150,5 +150,5 @@ A discrete boost converter designed, assembled, and experimentally tested under 
 ---
 
 <div align="center">
-  <sub>⚡ <i>"Between RTL and reality, there's only synthesis."</i></sub>
+ <sub>⚡<i>"Design in RTL. Prove in simulation. Trust the hardware."</i></sub>
 </div>
